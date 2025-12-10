@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Naturopathy & Wellness Centre</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2a7d5c;
+            --primary-light: #3ba374;
+            --secondary-color: #d4af37;
+            --light-color: #f8f9fa;
+            --dark-color: #333;
+            --gray-color: #777;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #fefefe;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--gray-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 8rem 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #eee;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-light {
+            background-color: var(--light-color);
+        }
+
+        /* About Centre */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-img img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Naturopathy & Panchakarma Sections */
+        .info-section {
+            margin-bottom: 4rem;
+        }
+
+        .info-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .info-content.reverse {
+            direction: rtl;
+        }
+
+        .info-content.reverse > * {
+            direction: ltr;
+        }
+
+        .info-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Panchakarma Treatments */
+        .treatment-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .treatment-item {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .treatment-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            background: linear-gradient(rgba(42, 125, 92, 0.9), rgba(42, 125, 92, 0.9)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 1rem;
+        }
+
+        .cta h2 {
+            color: white;
+        }
+
+        .cta h2:after {
+            background-color: var(--secondary-color);
+        }
+
+        .cta p {
+            color: #eee;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #ddd;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--primary-light);
+            margin-top: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content, .info-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .info-content.reverse {
+                direction: ltr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                box-shadow: var(--shadow);
+                transform: translateY(-150%);
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 6rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-leaf"></i>
+                    <h1>Divine Naturopathy</h1>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Centre</a></li>
+                    <li><a href="#naturopathy">Naturopathy</a></li>
+                    <li><a href="#panchakarma">Panchakarma</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Divine Naturopathy & Wellness Centre</h1>
+            <p>Experience holistic healing and rejuvenation through nature's wisdom. Our center combines traditional naturopathic principles with modern wellness practices to restore your body's natural balance.</p>
+            <a href="#contact" class="btn">Book a Consultation</a>
+        </div>
+    </section>
+
+    <!-- About Centre Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Our Centre</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Welcome to Divine Naturopathy</h3>
+                    <p>Established with a vision to provide holistic healing through nature's remedies, Divine Naturopathy & Wellness Centre is a sanctuary for those seeking natural paths to health and wellness.</p>
+                    <p>Our centre is nestled in a serene environment that promotes healing and relaxation. We believe in treating the root cause of ailments rather than just suppressing symptoms.</p>
+                    <p>With over 15 years of experience in naturopathic medicine, our team of certified practitioners offers personalized treatment plans tailored to individual needs, focusing on diet, lifestyle, and natural therapies.</p>
+                    <p>We are committed to empowering our clients with the knowledge and tools needed to maintain optimal health and prevent disease through natural means.</p>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Divine Naturopathy Centre">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Naturopathy Section -->
+    <section id="naturopathy" class="section-light">
+        <div class="container">
+            <h2>Understanding Naturopathy</h2>
+            <div class="info-section">
+                <div class="info-content">
+                    <div class="info-text">
+                        <h3>Healing Power of Nature</h3>
+                        <p>Naturopathy is a system of medicine that emphasizes the body's inherent ability to heal itself. It uses natural remedies and therapies to support and stimulate this healing process.</p>
+                        <p>At Divine Naturopathy, we follow the principle that nature provides everything needed for health and wellness. Our treatments focus on identifying and removing the underlying causes of illness rather than merely eliminating symptoms.</p>
+                        <p>We combine traditional healing wisdom with modern scientific knowledge to create effective, individualized treatment plans that promote long-term health and vitality.</p>
+                    </div>
+                    <div class="about-img">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Naturopathy Principles">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-seedling"></i>
+                    <h4>Natural Therapies</h4>
+                    <p>We use herbal medicine, nutrition, hydrotherapy, and physical therapies to stimulate the body's self-healing mechanisms.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-user-md"></i>
+                    <h4>Holistic Approach</h4>
+                    <p>We treat the whole person - mind, body, and spirit - not just the symptoms or disease.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h4>Preventive Care</h4>
+                    <p>Our focus is on preventing illness through healthy lifestyle choices and natural therapies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Panchakarma Section -->
+    <section id="panchakarma">
+        <div class="container">
+            <h2>Panchakarma Detoxification</h2>
+            <div class="info-section">
+                <div class="info-content reverse">
+                    <div class="info-text">
+                        <h3>Ancient Ayurvedic Rejuvenation</h3>
+                        <p>Panchakarma is a comprehensive Ayurvedic detoxification and rejuvenation program that eliminates toxins from the body and restores balance to the doshas (biological energies).</p>
+                        <p>At Divine Naturopathy, we offer authentic Panchakarma therapies administered by experienced practitioners. This five-fold purification process helps to remove deep-seated toxins, improve digestion, boost immunity, and promote overall wellness.</p>
+                        <p>Our Panchakarma programs are customized to individual constitution and health needs, ensuring optimal results and lasting benefits.</p>
+                    </div>
+                    <div class="about-img">
+                        <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Panchakarma Therapy">
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; margin-top: 3rem;">Our Panchakarma Treatments</h3>
+            <div class="treatment-list">
+                <div class="treatment-item">
+                    <h4>Vamana</h4>
+                    <p>Therapeutic emesis to eliminate excess Kapha toxins from the respiratory and gastrointestinal tract.</p>
+                </div>
+                <div class="treatment-item">
+                    <h4>Virechana</h4>
+                    <p>Purgation therapy to cleanse excess Pitta toxins from the liver, gallbladder, and gastrointestinal tract.</p>
+                </div>
+                <div class="treatment-item">
+                    <h4>Basti</h4>
+                    <p>Medicated enema therapy to eliminate excess Vata toxins from the colon and nervous system.</p>
+                </div>
+                <div class="treatment-item">
+                    <h4>Nasya</h4>
+                    <p>Nasal administration of herbal oils to cleanse and purify the head and neck region.</p>
+                </div>
+                <div class="treatment-item">
+                    <h4>Raktamokshana</h4>
+                    <p>Blood purification therapy to eliminate toxins from the bloodstream.</p>
+                </div>
+                <div class="treatment-item">
+                    <h4>Abhyanga</h4>
+                    <p>Therapeutic full-body massage with medicated oils to promote detoxification and relaxation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Begin Your Healing Journey</h2>
+            <p>Take the first step towards holistic wellness. Our experienced practitioners are ready to guide you on your path to natural health and vitality.</p>
+            <a href="#contact" class="btn">Schedule Your Consultation Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Divine Naturopathy</h3>
+                    <p>Your sanctuary for natural healing and holistic wellness. We combine ancient wisdom with modern practices to restore balance and vitality.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Wellness Street, Green Valley, Natural State 56789</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@divinenaturopathy.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 7:00 PM, Sun: 9:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.8rem;"><a href="#home" style="color: #ddd; text-decoration: none;">Home</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#about" style="color: #ddd; text-decoration: none;">About Centre</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#naturopathy" style="color: #ddd; text-decoration: none;">Naturopathy</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#panchakarma" style="color: #ddd; text-decoration: none;">Panchakarma</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#contact" style="color: #ddd; text-decoration: none;">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Divine Naturopathy & Wellness Centre. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Change menu icon
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
